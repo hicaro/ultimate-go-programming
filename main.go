@@ -11,5 +11,5 @@ package main
 import "ultimate-go-programming/language"
 
 func main() {
-	language.PointersExample5()
+	language.PointersExercise1()
 }

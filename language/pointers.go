@@ -153,14 +153,18 @@ func stackCopy(s *string, c int, a [size]int) {
 // _value that the pointer points to_.
 func PointersExercise1() {
 	// Declare an integer variable with the value of 20.
+	age := 20
 
 	// Display the address of and value of the variable.
+	println("age address:\t", &age, "\tage value:\t", age)
 
 	// Declare a pointer variable of type int. Assign the
 	// address of the integer variable above.
+	p := &age
 
 	// Display the address of, value of and the value the pointer
 	// points to.
+	println("p address:\t", &p, "\tp value:\t", p, "\tvalue p points to:\t", *p)
 }
 
 // PointersExercise2 - Declare a struct type and create a value of this type. Declare a function
