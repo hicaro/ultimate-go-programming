@@ -52,12 +52,12 @@ func PointersExample2() {
 	count := 10
 
 	// Display the "value of" and "address of" count.
-	println("count:\tValue Of[", count, "]\t\tAddr Of[", &count, "]")
+	println("count:\tValue Of[", count, "]\t\t\tAddr Of[", &count, "]")
 
 	// Pass the "address of" count.
 	increment(&count)
 
-	println("count:\tValue Of[", count, "]\t\tAddr Of[", &count, "]")
+	println("count:\tValue Of[", count, "]\t\t\tAddr Of[", &count, "]")
 }
 
 // PointersExample3 - Sample program to show the basic concept of using a pointer
@@ -141,7 +141,7 @@ func stackCopy(s *string, c int, a [size]int) {
 	println(c, s, *s)
 
 	c++
-	if c == 10 {
+	if c == size {
 		return
 	}
 
