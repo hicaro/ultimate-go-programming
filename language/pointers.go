@@ -171,18 +171,33 @@ func PointersExercise1() {
 // that can change the value of some field in this struct type. Display the
 // value before and after the call to your function.
 func PointersExercise2() {
-	// Create a function that changes the value of one of the user fields.
-	// funcName := func( /* add pointer parameter, add value parameter */ ) {
+	// Create a function that changes the value of one of the person fields.
+	changeName := func(u *person) {
+		// Use the pointer to change the value that the
+		// pointer points to.
+		u.name = "Spider Man"
+	}
 
-	// 	// Use the pointer to change the value that the
-	// 	// pointer points to.
-	// }
+	// display declares u as person literal variable whose value is always a copy of
+	// the type person input.
+	display := func(u person) {
+		fmt.Printf("%p\t%+v\n", &u, u)
+		fmt.Printf("Name: %q Email: %q Logins: %d\n\n", u.name, u.email, u.logins)
+	}
 
-	// Create a variable of type user and initialize each field.
+	// Create a variable of type person and initialize each field.
+	p := person{
+		name:   "Peter Parker",
+		email:  "peter@spider.com",
+		logins: 3,
+	}
 
 	// Display the value of the variable.
+	display(p)
 
 	// Share the variable with the function you declared above.
+	changeName(&p)
 
 	// Display the value of the variable.
+	display(p)
 }
