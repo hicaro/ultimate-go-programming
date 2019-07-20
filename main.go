@@ -8,8 +8,8 @@ This is presented from focusing on code readability at a micro level to full app
 
 package main
 
-import "ultimate-go-programming/language"
+import "ultimate-go-programming/language/datastructures"
 
 func main() {
-	language.MapsExercise1()
+	datastructures.MapsExercise1()
 }
