@@ -170,10 +170,18 @@ func MapsExample6() {
 
 	// ./example4.go:23:10: cannot take the address of players["anna"]
 
+	// Trying to increment in place
+	// players["anna"].score++
+	// cannot assign to struct field players["anna"].score in map
+
+	fmt.Printf("Score: %d\n", players["anna"].score)
+
 	// Instead take the element, modify it, and put it back.
 	player := players["anna"]
 	player.score++
 	players["anna"] = player
+
+	fmt.Printf("Score: %d\n", players["anna"].score)
 }
 
 // MapsExample7 is a sample program to show how maps are reference types.
@@ -200,8 +208,17 @@ func MapsExample7() {
 // map with five values and iterate over the map to display the key/value pairs
 func MapsExercise1() {
 	// Declare and make a map of integer type values.
+	ages := make(map[string]int)
+	// or:
+	// ages := map[string]int{}
 
 	// Initialize some data into the map.
+	ages["John"] = 45
+	ages["Jame"] = 82
+	ages["Joe"] = 51
 
 	// Display each key/value pair.
+	for key, value := range ages {
+		fmt.Printf("Key: %s, Value: %d\n", key, value)
+	}
 }
