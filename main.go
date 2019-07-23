@@ -8,8 +8,8 @@ This is presented from focusing on code readability at a micro level to full app
 
 package main
 
-import "ultimate-go-programming/language/datastructures"
+import "ultimate-go-programming/language/decoupling"
 
 func main() {
-	datastructures.MapsExercise1()
+	decoupling.MethodsExercise1()
 }
