@@ -3,7 +3,6 @@ package decoupling
 import (
 	"fmt"
 	"log"
-	"unsafe"
 )
 
 // file defines a system file.
@@ -355,45 +354,45 @@ func (e employee) notify() {
 	fmt.Println("Alert", e.name)
 }
 
-// InterfacesAdvancedExample1 is a sample program that explores how interface assignments work when
-// values are stored inside the interface.
-func InterfacesAdvancedExample1() {
+// // InterfacesAdvancedExample1 is a sample program that explores how interface assignments work when
+// // values are stored inside the interface.
+// func InterfacesAdvancedExample1() {
 
-	inspect := func(n *notifier, u *employee) {
-		word := uintptr(unsafe.Pointer(n)) + uintptr(unsafe.Sizeof(&u))
-		value := (**employee)(unsafe.Pointer(word))
-		fmt.Printf("Addr employee: %p  Word Value: %p  Ptr Value: %v\n", u, *value, **value)
-	}
+// 	inspect := func(n *notifier, u *employee) {
+// 		word := uintptr(unsafe.Pointer(n)) + uintptr(unsafe.Sizeof(&u))
+// 		value := (**employee)(unsafe.Pointer(word))
+// 		fmt.Printf("Addr employee: %p  Word Value: %p  Ptr Value: %v\n", u, *value, **value)
+// 	}
 
-	// Create a notifier interface and concrete type value.
-	var n1 notifier
-	u := employee{321, "bill"}
+// 	// Create a notifier interface and concrete type value.
+// 	var n1 notifier
+// 	u := employee{321, "bill"}
 
-	// Store a copy of the employee value inside the notifier
-	// interface value.
-	n1 = u
+// 	// Store a copy of the employee value inside the notifier
+// 	// interface value.
+// 	n1 = u
 
-	// We see the interface has its own copy.
-	// Addr employee: 0x1040a120  Word Value: 0x10427f70  Ptr Value: {bill}
-	inspect(&n1, &u)
+// 	// We see the interface has its own copy.
+// 	// Addr employee: 0x1040a120  Word Value: 0x10427f70  Ptr Value: {bill}
+// 	inspect(&n1, &u)
 
-	// Make a copy of the interface value.
-	n2 := n1
+// 	// Make a copy of the interface value.
+// 	n2 := n1
 
-	// We see the interface is sharing the same value stored in
-	// the n1 interface value.
-	// Addr employee: 0x1040a120  Word Value: 0x10427f70  Ptr Value: {bill}
-	inspect(&n2, &u)
+// 	// We see the interface is sharing the same value stored in
+// 	// the n1 interface value.
+// 	// Addr employee: 0x1040a120  Word Value: 0x10427f70  Ptr Value: {bill}
+// 	inspect(&n2, &u)
 
-	// Store a copy of the employee address value inside the
-	// notifier interface value.
-	n1 = &u
+// 	// Store a copy of the employee address value inside the
+// 	// notifier interface value.
+// 	n1 = &u
 
-	// We see the interface is sharing the u variables value
-	// directly. There is no copy.
-	// Addr employee: 0x1040a120  Word Value: 0x1040a120  Ptr Value: {bill}
-	inspect(&n1, &u)
-}
+// 	// We see the interface is sharing the u variables value
+// 	// directly. There is no copy.
+// 	// Addr employee: 0x1040a120  Word Value: 0x1040a120  Ptr Value: {bill}
+// 	inspect(&n1, &u)
+// }
 
 // *****************************************************************************
 
