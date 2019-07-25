@@ -11,5 +11,5 @@ package main
 import "ultimate-go-programming/language/decoupling"
 
 func main() {
-	decoupling.InterfacesExercise1()
+	decoupling.EmbeddingExercise1()
 }
